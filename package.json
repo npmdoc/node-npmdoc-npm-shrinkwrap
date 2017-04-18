@@ -1,1 +1,39 @@
-{     "devDependencies": {         "npm-shrinkwrap": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmdoc-npm-shrinkwrap",     "homepage": "https://github.com/npmdoc/node-npmdoc-npm-shrinkwrap",     "repository": {         "type": "git",         "url": "https://github.com/npmdoc/node-npmdoc-npm-shrinkwrap.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### api documentation for  [npm-shrinkwrap (v6.0.2)](https://github.com/uber/npm-shrinkwrap)  [![npm package](https://img.shields.io/npm/v/npmdoc-npm-shrinkwrap.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-npm-shrinkwrap) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-npm-shrinkwrap.svg)](https://travis-ci.org/npmdoc/node-npmdoc-npm-shrinkwrap)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "npm-shrinkwrap": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-npm-shrinkwrap",
+    "keywords": [
+        "documentation",
+        "npm-shrinkwrap"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_npm_shrinkwrap.js",
+    "name": "npmdoc-npm-shrinkwrap",
+    "nameAlias": "npmdoc_npm_shrinkwrap",
+    "nameOriginal": "npmdoc-npm-shrinkwrap",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmdoc/node-npmdoc-npm-shrinkwrap.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
