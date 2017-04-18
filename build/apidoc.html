@@ -1,0 +1,2516 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/uber/npm-shrinkwrap"
+
+    >npm-shrinkwrap (v6.0.2)</a>
+</h1>
+<h4>A consistent shrinkwrap tool</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap">module npm-shrinkwrap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.npm-shrinkwrap">
+            function <span class="apidocSignatureSpan"></span>npm-shrinkwrap
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.analyze_dependency">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>analyze_dependency
+            <span class="apidocSignatureSpan">(name, gitLink, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.force_install">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>force_install
+            <span class="apidocSignatureSpan">(nodeModules, shrinkwrap, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.install_module">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>install_module
+            <span class="apidocSignatureSpan">(nodeModules, dep, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.purge_excess">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>purge_excess
+            <span class="apidocSignatureSpan">(dir, shrinkwrap, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.read_json">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>read_json
+            <span class="apidocSignatureSpan">(filename, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.set_resolved">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>set_resolved
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.toString">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.trim_and_sort_shrinkwrap">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_and_sort_shrinkwrap
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.trim_nested">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_nested
+            <span class="apidocSignatureSpan">(previous, current, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.verify_git">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>verify_git
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.walk_shrinkwrap">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>walk_shrinkwrap
+            <span class="apidocSignatureSpan">(package, fn, key, parent)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">npm-shrinkwrap.</span>errors</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">npm-shrinkwrap.</span>read</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.analyze_dependency">module npm-shrinkwrap.analyze_dependency</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.analyze_dependency.analyze_dependency">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>analyze_dependency
+            <span class="apidocSignatureSpan">(name, gitLink, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.errors">module npm-shrinkwrap.errors</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.EmptyFile">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>EmptyFile
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.InvalidNPMVersion">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidNPMVersion
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.InvalidPackage">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidPackage
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.InvalidVersion">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidVersion
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.InvalidVersionsNPMError">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidVersionsNPMError
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.MissingPackage">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>MissingPackage
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.NPMError">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>NPMError
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.NoTagError">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>NoTagError
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.errors.NonSemverTag">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>NonSemverTag
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.force_install">module npm-shrinkwrap.force_install</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.force_install.force_install">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>force_install
+            <span class="apidocSignatureSpan">(nodeModules, shrinkwrap, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.install_module">module npm-shrinkwrap.install_module</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.install_module.install_module">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>install_module
+            <span class="apidocSignatureSpan">(nodeModules, dep, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.purge_excess">module npm-shrinkwrap.purge_excess</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.purge_excess.purge_excess">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>purge_excess
+            <span class="apidocSignatureSpan">(dir, shrinkwrap, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.read">module npm-shrinkwrap.read</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.read.devDependencies">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.read.</span>devDependencies
+            <span class="apidocSignatureSpan">(dirname, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.read.package">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.read.</span>package
+            <span class="apidocSignatureSpan">(dirname, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.read.shrinkwrap">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.read.</span>shrinkwrap
+            <span class="apidocSignatureSpan">(dirname, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.read_json">module npm-shrinkwrap.read_json</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.read_json.read_json">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>read_json
+            <span class="apidocSignatureSpan">(filename, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.set_resolved">module npm-shrinkwrap.set_resolved</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.set_resolved.set_resolved">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>set_resolved
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.toString">module npm-shrinkwrap.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.toString.toString">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.trim_and_sort_shrinkwrap">module npm-shrinkwrap.trim_and_sort_shrinkwrap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.trim_and_sort_shrinkwrap.trim_and_sort_shrinkwrap">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_and_sort_shrinkwrap
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.trim_nested">module npm-shrinkwrap.trim_nested</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.trim_nested.trim_nested">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_nested
+            <span class="apidocSignatureSpan">(previous, current, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.verify_git">module npm-shrinkwrap.verify_git</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.verify_git.verify_git">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>verify_git
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.npm-shrinkwrap.walk_shrinkwrap">module npm-shrinkwrap.walk_shrinkwrap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.npm-shrinkwrap.walk_shrinkwrap.walk_shrinkwrap">
+            function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>walk_shrinkwrap
+            <span class="apidocSignatureSpan">(package, fn, key, parent)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap" id="apidoc.module.npm-shrinkwrap">module npm-shrinkwrap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.npm-shrinkwrap" id="apidoc.element.npm-shrinkwrap.npm-shrinkwrap">
+        function <span class="apidocSignatureSpan"></span>npm-shrinkwrap
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function npmShrinkwrap(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var _warnings = null;
+    var _oldShrinkwrap = null;
+
+    getNPM().load({
+        prefix: opts.dirname,
+        dev: opts.dev,
+        loglevel: &#x27;error&#x27;
+    }, verifyTree);
+
+    function verifyTree(err, npm) {
+        if (err) {
+            return callback(err);
+        }
+
+        // when running under `npm test` depth is set to 1
+        // reset it to a high number like 100
+        npm.config.set(&#x27;depth&#x27;, 100);
+
+        npm.commands.ls([], true, onls);
+
+        function onls(err, _, pkginfo) {
+            if (err) {
+                return callback(err);
+            }
+
+            if (pkginfo.problems) {
+                var error = NPMError(pkginfo);
+                return callback(error);
+            }
+
+            verifyGit(opts, onverify);
+        }
+
+        function onverify(err, errors) {
+            if (err) {
+                return callback(err);
+            }
+
+            if (errors.length === 0) {
+                return onnpm(null, npm);
+            }
+
+            var error = ValidationError(errors);
+            var invalid = find(errors, function (error) {
+                return error.type === &#x27;invalid.git.version&#x27;;
+            });
+
+            if (invalid) {
+                error = ERRORS.InvalidVersionsNPMError({
+                    actual: invalid.actual,
+                    name: invalid.name,
+                    dirname: invalid.dirname,
+                    errors: error.errors
+                });
+            }
+
+            var types = errors.reduce(function (acc, e) {
+                if (acc.indexOf(e.type) === -1) {
+                    acc.push(e.type);
+                }
+
+                return acc;
+            }, []);
+
+            if (opts.warnOnNotSemver &#x26;&#x26; types.length === 1 &#x26;&#x26;
+                types[0] === &#x27;gitlink.tag.notsemver&#x27;
+            ) {
+                _warnings = error.errors;
+                return onnpm(null, npm);
+            }
+
+            callback(error);
+        }
+    }
+
+    function onnpm(err, npm) {
+        if (err) {
+            return callback(err);
+        }
+
+        var fileName = path.join(opts.dirname, &#x27;npm-shrinkwrap.json&#x27;);
+        readJSON(fileName, onfile);
+
+        function onfile(err, oldShrinkwrap) {
+            if (err) {
+                // if no npm-shrinkwrap.json exists then just
+                // create one
+                npm.commands.shrinkwrap({}, true, onshrinkwrap);
+                return;
+            }
+
+            _oldShrinkwrap = oldShrinkwrap;
+
+<span class="apidocCodeCommentSpan">            /* npm.commands.shrinkwrap will blow away any
+                extra keys that you set.
+
+                We have to read extra keys &#x26; set them again
+                after shrinkwrap is done
+            */
+</span>            var keys = Object.keys(oldShrinkwrap)
+                .filter(function (k) {
+                    return [
+                        &#x27;name&#x27;, &#x27;version&#x27;, &#x27;dependencies&#x27;
+                    ].indexOf(k) === -1;
+                });
+
+            npm.commands.shrinkwrap({}, true, onwrapped);
+
+            function onwrapped(err) {
+                if (err) {
+                    return callback(err);
+                }
+
+                readJSON(fileName, onnewfile);
+            }
+
+            function onnewfile(err, newShrinkwrap) {
+                if (err) {
+                    return callback(err);
+                }
+
+                keys.forEach(function (k) {
+                    if (!newShrinkwrap[k]) {
+                        newShrinkwrap[k] = oldShrinkwrap[k];
+                    }
+                });
+
+                newShrinkwrap = sortedObject(newShrinkwrap);
+
+                var buf = JSON.stringify(newShrinkwrap, null, 2) + &#x27;\n&#x27;;
+                fs.writeFile(fileName, buf, &#x27;utf8&#x27;, onshrinkwrap);
+            }
+        }
+    }
+
+    function onshrinkwrap(err) {
+        if (err) {
+            return callback(err);
+        }
+
+        setResolved(opts, onResolved);
+    }
+
+    function onResolved(err) {
+        if (err) {
+            return callback(err);
+        }
+
+        trimFr ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.analyze_dependency" id="apidoc.element.npm-shrinkwrap.analyze_dependency">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>analyze_dependency
+        <span class="apidocSignatureSpan">(name, gitLink, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function analyzeDependency(name, gitLink, opts, cb) {
+    var parsed = parseTag(gitLink);
+
+    if (!parsed) {
+        return cb(null);
+    }
+
+    if (!parsed.tag) {
+        return cb(null, errors.NoTagError({
+            name: name,
+            gitLink: gitLink,
+            dirname: opts.dirname
+        }));
+    }
+
+    var version = parseVersion(parsed.tag);
+
+    if (!version) {
+        return cb(null, errors.NonSemverTag({
+            name: name,
+            gitLink: gitLink,
+            tag: parsed.tag,
+            dirname: opts.dirname
+        }));
+    }
+
+    var packageUri = path.join(opts.dirname, &#x27;node_modules&#x27;,
+        name, &#x27;package.json&#x27;);
+    readJSON(packageUri, function (err, pkg) {
+        if (err) {
+            if (err.code === &#x27;ENOENT&#x27;) {
+                return cb(null, errors.MissingPackage({
+                    name: name,
+                    expected: version,
+                    dirname: opts.dirname,
+                    tag: parsed.tag
+                }));
+            }
+
+            return cb(err);
+        }
+
+        if (!pkg || !pkg.version) {
+            return cb(null, errors.InvalidPackage({
+                name: name,
+                gitLink: gitLink,
+                json: JSON.stringify(pkg),
+                tag: parsed.tag,
+                dirname: opts.dirname
+            }));
+        }
+
+        if (pkg.version !== version) {
+            return cb(null, errors.InvalidVersion({
+                name: name,
+                expected: version,
+                actual: pkg.version,
+                gitLink: gitLink,
+                tag: parsed.tag,
+                dirname: opts.dirname
+            }));
+        }
+
+        return cb(null);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.force_install" id="apidoc.element.npm-shrinkwrap.force_install">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>force_install
+        <span class="apidocSignatureSpan">(nodeModules, shrinkwrap, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function forceInstall(nodeModules, shrinkwrap, opts, cb) {
+    if (typeof opts === &#x27;function&#x27;) {
+        cb = opts;
+        opts = {};
+    }
+
+    // if no dependencies object then terminate recursion
+    if (shrinkwrap.name &#x26;&#x26; !shrinkwrap.dependencies) {
+        return purgeExcess(nodeModules, shrinkwrap, opts, cb);
+    }
+
+    var deps = shrinkwrap.dependencies;
+    // console.log(&#x27;shrinkwrap&#x27;, shrinkwrap);
+    var tasks = Object.keys(deps).map(function (key) {
+        var dep = deps[key];
+        if (!dep.name) {
+            dep.name = key;
+        }
+        var filePath = path.join(nodeModules, key);
+
+        return isCorrect.bind(null, filePath, dep, opts);
+    });
+
+    tasks.push(purgeExcess.bind(
+        null, nodeModules, shrinkwrap, opts));
+
+    parallel(tasks, function (err, results) {
+        if (err) {
+            return cb(err);
+        }
+
+        opts.dev = false;
+
+        // remove purgeExcess result
+        results.pop();
+
+        var incorrects = results.filter(function (dep) {
+            return !dep.correct;
+        });
+        var corrects = results.filter(function (dep) {
+            return dep.correct;
+        });
+
+<span class="apidocCodeCommentSpan">        /*  for each incorrect
+
+             - install it
+             - remove excess
+             - force install all children
+
+
+        */
+</span>        var inCorrectTasks = incorrects.map(function (incorrect) {
+            var name = incorrect.name;
+            var folder = path.join(nodeModules,
+                name, &#x27;node_modules&#x27;);
+
+            return series.bind(null, [
+                installModule.bind(
+                    null, nodeModules, incorrect, opts),
+                forceInstall.bind(null, folder, incorrect, opts)
+            ]);
+        });
+        var correctTasks = corrects.map(function (correct) {
+            var name = correct.name;
+            var folder = path.join(nodeModules, name,
+                &#x27;node_modules&#x27;);
+
+            return forceInstall.bind(
+                null, folder, correct, opts);
+        });
+
+        /* for each correct
+
+            - force install all children
+        */
+
+        var tasks = [].concat(inCorrectTasks, correctTasks);
+
+        parallel(tasks, cb);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.install_module" id="apidoc.element.npm-shrinkwrap.install_module">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>install_module
+        <span class="apidocSignatureSpan">(nodeModules, dep, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function installModule(nodeModules, dep, opts, cb) {
+    var where = path.join(nodeModules, &#x27;..&#x27;);
+
+    console.log(&#x27;installing &#x27;, where, dep.resolved);
+    var cmd = &#x27;npm install &#x27; + dep.resolved;
+
+    if (opts.registry) {
+        cmd += &#x27; --registry=&#x27; + opts.registry;
+    }
+
+    exec(cmd, {
+        cwd: where
+    }, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.purge_excess" id="apidoc.element.npm-shrinkwrap.purge_excess">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>purge_excess
+        <span class="apidocSignatureSpan">(dir, shrinkwrap, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function purgeExcess(dir, shrinkwrap, opts, cb) {
+    if (typeof opts === &#x27;function&#x27;) {
+        cb = opts;
+        opts = {};
+    }
+
+    findExcess(dir, shrinkwrap, opts, null, function (err, excessFiles) {
+        if (err) {
+            // if no node_modules then nothing to purge
+            if (err.code === &#x27;ENOENT&#x27;) {
+                return cb(null);
+            }
+            return cb(err);
+        }
+
+        var tasks = excessFiles.map(function (file) {
+            var filePath = path.join(dir, file);
+            console.log(&#x27;removing&#x27;, filePath);
+            return rimraf.bind(null, filePath);
+        });
+
+        parallel(tasks, cb);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.read_json" id="apidoc.element.npm-shrinkwrap.read_json">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>read_json
+        <span class="apidocSignatureSpan">(filename, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readJSON(filename, options, callback){
+  if(callback === undefined){
+    callback = options;
+    options = {};
+  }
+
+  fs.readFile(filename, options, function(error, bf){
+    if(error) return callback(error);
+
+    try {
+      bf = JSON.parse(bf.toString().replace(/^\ufeff/g, &#x27;&#x27;));
+    } catch (err) {
+      callback(err);
+      return;
+    }
+
+    callback(undefined, bf);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.set_resolved" id="apidoc.element.npm-shrinkwrap.set_resolved">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>set_resolved
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setResolved(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var shrinkwrapFile = path.join(opts.dirname, &#x27;npm-shrinkwrap.json&#x27;);
+    var createUri = opts.createUri || defaultCreateUri;
+    var registries = opts.registries || [&#x27;registry.npmjs.org&#x27;];
+    var rewriteResolved = opts.rewriteResolved || null;
+
+    readJSON(shrinkwrapFile, onjson);
+
+    function onjson(err, json) {
+        if (err) {
+            return callback(err);
+        }
+
+        var existingVersion = json[&#x27;npm-shrinkwrap-version&#x27;];
+
+        if (existingVersion &#x26;&#x26; semver.gt(existingVersion, version)) {
+            return callback(errors.InvalidNPMVersion({
+                existing: existingVersion,
+                current: version
+            }));
+        }
+
+        json[&#x27;npm-shrinkwrap-version&#x27;] = version;
+
+        json[&#x27;node-version&#x27;] = process.version;
+
+        json = fixResolved(json, null);
+
+        // if top level shrinkwrap has a `from` or `resolved`
+        // field then delete them
+        if (json.from) {
+            json.from = undefined;
+        }
+        if (json.resolved) {
+            json.resolved = undefined;
+        }
+
+        fs.writeFile(shrinkwrapFile,
+            JSON.stringify(json, null, 2) + &#x27;\n&#x27;, callback);
+    }
+
+    function fixResolved(json, name) {
+        if (json.from &#x26;&#x26; !json.resolved) {
+            computeResolved(json, name);
+        }
+
+        // handle the case of no resolved &#x26; no from
+        if (json.version &#x26;&#x26; name &#x26;&#x26; !json.resolved) {
+            json.resolved = createUri(name, json.version);
+        }
+
+        if (rewriteResolved &#x26;&#x26; json.resolved) {
+            json.resolved = rewriteResolved(json.resolved);
+        }
+
+        if (json.dependencies) {
+            Object.keys(json.dependencies).forEach(function (dep) {
+                fixResolved(json.dependencies[dep], dep);
+            });
+            json.dependencies = json.dependencies;
+        }
+
+        return json;
+    }
+
+<span class="apidocCodeCommentSpan">    /*  look for `from` fields and set a `resolved` field next
+          to it if the `resolved` does not exist.
+
+        This normalizes `npm shrinkwrap` so a resolved field
+          always get&#x27;s set.
+
+    */
+</span>    function computeResolved(json, name) {
+        var value = json.from;
+        name = name || json.name;
+
+        var uri = url.parse(value);
+
+        // handle the case `from` is a privateRegistryURL
+        if ((uri.protocol === &#x27;http:&#x27; || uri.protocol === &#x27;https:&#x27;) &#x26;&#x26;
+            registries.indexOf(uri.host) !== -1
+        ) {
+            json.resolved = value;
+            return;
+        }
+
+        // from is {name}@{semver | uri}
+        var parts = value.split(&#x27;@&#x27;);
+        var rest = parts.slice(1).join(&#x27;@&#x27;);
+
+        var secondUri = url.parse(rest);
+
+        // from is a {name}@{semver}
+        if (!secondUri.protocol) {
+            // call createUri to generate a tarball uri
+            // for json module name &#x26; version
+            json.resolved = createUri(name, json.version);
+            return;
+        } else {
+            // from is a git link.
+            // do not try to set resolved
+            return;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.toString" id="apidoc.element.npm-shrinkwrap.toString">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  options = {};
+}
+
+fs.readFile(filename, options, function(error, bf){
+  if(error) return callback(error);
+
+  try {
+    bf = JSON.parse(bf.<span class="apidocCodeKeywordSpan">toString</span>().replace(/^\ufeff/g, &#x27;&#x27;));
+  } catch (err) {
+    callback(err);
+    return;
+  }
+
+  callback(undefined, bf);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.trim_and_sort_shrinkwrap" id="apidoc.element.npm-shrinkwrap.trim_and_sort_shrinkwrap">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_and_sort_shrinkwrap
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trimFrom(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var shrinkwrapFile = path.join(opts.dirname, &#x27;npm-shrinkwrap.json&#x27;);
+    var registries = opts.registries || [&#x27;registry.npmjs.org&#x27;];
+
+    parallel([
+        fixShrinkwrap,
+        fixPackage.bind(null, opts.dirname)
+    ], callback);
+
+
+    function fixShrinkwrap(callback) {
+        fs.readFile(shrinkwrapFile, &#x27;utf8&#x27;, function (err, file) {
+            if (err) {
+                return callback(err);
+            }
+
+            if (file === &#x27;&#x27;) {
+                return callback(errors.EmptyFile());
+            }
+
+            safeJsonParse(file, function (err, json) {
+                if (err) {
+                    return callback(err);
+                }
+
+                json = recursiveSorted(json);
+
+                json = replaceFields(json, replacer);
+
+                fs.writeFile(shrinkwrapFile,
+                    JSON.stringify(json, null, 2) + &#x27;\n&#x27;, callback);
+            });
+        });
+    }
+
+    function replaceFields(json, replacer, name) {
+        name = name || &#x27;root&#x27;;
+
+        if (json.from) {
+            json.from = replacer.call(json,
+                &#x27;from&#x27;, json.from, name);
+        }
+
+        if (json.dependencies) {
+            Object.keys(json.dependencies)
+                .forEach(recurse);
+        }
+
+        return json;
+
+        function recurse(name) {
+            json.dependencies[name] = replaceFields(
+                json.dependencies[name],
+                replacer,
+                name);
+        }
+    }
+
+    function fixFromField(opts) {
+        var shaIsm = opts.fromUri.hash &#x26;&#x26;
+            opts.fromUri.hash.slice(1);
+
+        // from does not have shaIsm. bail early
+        if (!shaIsm) {
+            return opts.name + &#x27;@&#x27; + opts.fromValue;
+        }
+
+        var resolvedUri = url.parse(opts.resolvedValue);
+        var resolveShaism = resolvedUri.hash &#x26;&#x26;
+            resolvedUri.hash.slice(1);
+
+        // resolved does not have shaIsm. bail early
+        if (!resolveShaism) {
+            return opts.name + &#x27;@&#x27; + opts.fromValue;
+        }
+
+        // replace the from shaIsm with the resolved shaIsm
+        if (shaIsm !== resolveShaism) {
+            var pathname = opts.fromUri.pathname;
+            // normalize git+ssh links with a &#x27;:&#x27; after the host instead of a &#x27;/&#x27;
+            if (pathname[1] === &#x27;:&#x27;) {
+                pathname = pathname[0] + pathname.slice(2);
+            }
+            var newValue = url.format({
+                protocol: opts.fromUri.protocol,
+                slashes: opts.fromUri.slashes,
+                auth: opts.fromUri.auth,
+                host: opts.fromUri.host,
+                pathname: pathname,
+                hash: resolveShaism
+            });
+            return opts.name + &#x27;@&#x27; + newValue;
+        }
+
+        return opts.name + &#x27;@&#x27; + opts.fromValue;
+    }
+
+<span class="apidocCodeCommentSpan">    /* trims the `from` field from `npm-shrinkwrap.json` files.
+
+        The `from` field is likely to change because different npm
+            clients do different things and general non determinism.
+
+        The `from` field is not really important since the `resolved`
+            and `version` fields are mostly used.
+
+        The only situations in which `from` is used is non npm links
+            (i.e. git, git+ssh and https tarbal links) and situations
+            where there is no `resolved` field.
+    */
+</span>    function replacer(key, value, name) {
+        if (key !== &#x27;from&#x27;) {
+            return value;
+        }
+
+        var resolved = this.resolved;
+
+        // if this dependency has no `resolved` field then it&#x27;s not
+        // safe to remove the `from` field since `npm install` will
+        // use it.
+        if (!resolved) {
+            return value;
+        }
+
+        var uri = url.parse(value);
+
+        // if it&#x27;s a `http:` link to registry its safe
+        // to remove as `from` is not really used
+        if ((uri.protocol === &#x27;http:&#x27; || uri.protocol === &#x27;https:&#x27;) &#x26;&#x26;
+            registries.indexOf(uri.host) !== -1
+        ) {
+            return undefined;
+        // if it&#x27;s any other li ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.trim_nested" id="apidoc.element.npm-shrinkwrap.trim_nested">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_nested
+        <span class="apidocSignatureSpan">(previous, current, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trimNested(previous, current, opts) {
+    // bail early if we want to keep nested dependencies
+    if (opts.keepNested) {
+        return current;
+    }
+
+    // purposes find patches from to
+    // apply TO current FROM previous
+    var patches = jsonDiff.diff(current, previous);
+
+    if (!patches) {
+        return current;
+    }
+
+    patches = removeTopLevelPatches(patches);
+
+    if (patches.dependencies) {
+        Object.keys(patches.dependencies)
+            .forEach(function (key) {
+                current.dependencies[key] =
+                    previous.dependencies[key];
+            });
+    }
+
+    return current;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.verify_git" id="apidoc.element.npm-shrinkwrap.verify_git">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>verify_git
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function verifyGit(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var packageFile = path.join(opts.dirname, &#x27;package.json&#x27;);
+
+    readJSON(packageFile, onpackage);
+
+    function onpackage(err, package) {
+        if (err) {
+            return callback(err);
+        }
+
+        var deps = package.dependencies || {};
+        var devDeps = package.devDependencies || {};
+
+        parallel([
+            analyze.bind(null, deps, opts),
+            opts.dev ? analyze.bind(null, devDeps, opts) : null
+        ].filter(Boolean), function (err, values) {
+            if (err) {
+                return callback(err);
+            }
+
+            var errors = values[0].concat(values[1] || []);
+
+            callback(null, errors);
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.walk_shrinkwrap" id="apidoc.element.npm-shrinkwrap.walk_shrinkwrap">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>walk_shrinkwrap
+        <span class="apidocSignatureSpan">(package, fn, key, parent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function walkDeps(package, fn, key, parent) {
+    package._name = key || package.name;
+    package._parent = parent || null;
+    fn(package, package._name, package._parent);
+
+    Object.keys(package.dependencies || {})
+        .forEach(function (key) {
+            walkDeps(package.dependencies[key],
+                fn, key, package);
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.analyze_dependency" id="apidoc.module.npm-shrinkwrap.analyze_dependency">module npm-shrinkwrap.analyze_dependency</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.analyze_dependency.analyze_dependency" id="apidoc.element.npm-shrinkwrap.analyze_dependency.analyze_dependency">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>analyze_dependency
+        <span class="apidocSignatureSpan">(name, gitLink, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function analyzeDependency(name, gitLink, opts, cb) {
+    var parsed = parseTag(gitLink);
+
+    if (!parsed) {
+        return cb(null);
+    }
+
+    if (!parsed.tag) {
+        return cb(null, errors.NoTagError({
+            name: name,
+            gitLink: gitLink,
+            dirname: opts.dirname
+        }));
+    }
+
+    var version = parseVersion(parsed.tag);
+
+    if (!version) {
+        return cb(null, errors.NonSemverTag({
+            name: name,
+            gitLink: gitLink,
+            tag: parsed.tag,
+            dirname: opts.dirname
+        }));
+    }
+
+    var packageUri = path.join(opts.dirname, &#x27;node_modules&#x27;,
+        name, &#x27;package.json&#x27;);
+    readJSON(packageUri, function (err, pkg) {
+        if (err) {
+            if (err.code === &#x27;ENOENT&#x27;) {
+                return cb(null, errors.MissingPackage({
+                    name: name,
+                    expected: version,
+                    dirname: opts.dirname,
+                    tag: parsed.tag
+                }));
+            }
+
+            return cb(err);
+        }
+
+        if (!pkg || !pkg.version) {
+            return cb(null, errors.InvalidPackage({
+                name: name,
+                gitLink: gitLink,
+                json: JSON.stringify(pkg),
+                tag: parsed.tag,
+                dirname: opts.dirname
+            }));
+        }
+
+        if (pkg.version !== version) {
+            return cb(null, errors.InvalidVersion({
+                name: name,
+                expected: version,
+                actual: pkg.version,
+                gitLink: gitLink,
+                tag: parsed.tag,
+                dirname: opts.dirname
+            }));
+        }
+
+        return cb(null);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.errors" id="apidoc.module.npm-shrinkwrap.errors">module npm-shrinkwrap.errors</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.EmptyFile" id="apidoc.element.npm-shrinkwrap.errors.EmptyFile">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>EmptyFile
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    function fixShrinkwrap(callback) {
+        fs.readFile(shrinkwrapFile, &#x27;utf8&#x27;, function (err, file) {
+if (err) {
+    return callback(err);
+}
+
+if (file === &#x27;&#x27;) {
+    return callback(errors.<span class="apidocCodeKeywordSpan">EmptyFile</span>());
+}
+
+safeJsonParse(file, function (err, json) {
+    if (err) {
+        return callback(err);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.InvalidNPMVersion" id="apidoc.element.npm-shrinkwrap.errors.InvalidNPMVersion">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidNPMVersion
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (err) {
+    return callback(err);
+}
+
+var existingVersion = json[&#x27;npm-shrinkwrap-version&#x27;];
+
+if (existingVersion &#x26;&#x26; semver.gt(existingVersion, version)) {
+    return callback(errors.<span class="apidocCodeKeywordSpan">InvalidNPMVersion</span>({
+        existing: existingVersion,
+        current: version
+    }));
+}
+
+json[&#x27;npm-shrinkwrap-version&#x27;] = version;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.InvalidPackage" id="apidoc.element.npm-shrinkwrap.errors.InvalidPackage">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidPackage
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        }));
+    }
+
+    return cb(err);
+}
+
+if (!pkg || !pkg.version) {
+    return cb(null, errors.<span class="apidocCodeKeywordSpan">InvalidPackage</span>({
+        name: name,
+        gitLink: gitLink,
+        json: JSON.stringify(pkg),
+        tag: parsed.tag,
+        dirname: opts.dirname
+    }));
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.InvalidVersion" id="apidoc.element.npm-shrinkwrap.errors.InvalidVersion">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidVersion
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        json: JSON.stringify(pkg),
+        tag: parsed.tag,
+        dirname: opts.dirname
+    }));
+}
+
+if (pkg.version !== version) {
+    return cb(null, errors.<span class="apidocCodeKeywordSpan">InvalidVersion</span>({
+        name: name,
+        expected: version,
+        actual: pkg.version,
+        gitLink: gitLink,
+        tag: parsed.tag,
+        dirname: opts.dirname
+    }));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.InvalidVersionsNPMError" id="apidoc.element.npm-shrinkwrap.errors.InvalidVersionsNPMError">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>InvalidVersionsNPMError
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var error = ValidationError(errors);
+var invalid = find(errors, function (error) {
+    return error.type === &#x27;invalid.git.version&#x27;;
+});
+
+if (invalid) {
+    error = ERRORS.<span class="apidocCodeKeywordSpan">InvalidVersionsNPMError</span>({
+        actual: invalid.actual,
+        name: invalid.name,
+        dirname: invalid.dirname,
+        errors: error.errors
+    });
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.MissingPackage" id="apidoc.element.npm-shrinkwrap.errors.MissingPackage">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>MissingPackage
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+var packageUri = path.join(opts.dirname, &#x27;node_modules&#x27;,
+    name, &#x27;package.json&#x27;);
+readJSON(packageUri, function (err, pkg) {
+    if (err) {
+        if (err.code === &#x27;ENOENT&#x27;) {
+            return cb(null, errors.<span class="apidocCodeKeywordSpan">MissingPackage</span>({
+                name: name,
+                expected: version,
+                dirname: opts.dirname,
+                tag: parsed.tag
+            }));
+        }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.NPMError" id="apidoc.element.npm-shrinkwrap.errors.NPMError">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>NPMError
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var NPM = require(&#x27;npm&#x27;);
+    return NPM;
+}
+
+function NPMError(pkginfo) {
+    var problemsText = pkginfo.problems.join(&#x27;\n&#x27;);
+
+    return ERRORS.<span class="apidocCodeKeywordSpan">NPMError</span>({
+        pkginfo: pkginfo,
+        problemsText: problemsText
+    });
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.NoTagError" id="apidoc.element.npm-shrinkwrap.errors.NoTagError">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>NoTagError
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var parsed = parseTag(gitLink);
+
+if (!parsed) {
+    return cb(null);
+}
+
+if (!parsed.tag) {
+    return cb(null, errors.<span class="apidocCodeKeywordSpan">NoTagError</span>({
+        name: name,
+        gitLink: gitLink,
+        dirname: opts.dirname
+    }));
+}
+
+var version = parseVersion(parsed.tag);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.errors.NonSemverTag" id="apidoc.element.npm-shrinkwrap.errors.NonSemverTag">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.errors.</span>NonSemverTag
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createError(opts) {
+    var result = new Error()
+
+    Object.defineProperty(result, &#x22;type&#x22;, {
+        value: result.type,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    })
+
+    var options = extend({}, args, opts)
+
+    extend(result, options)
+    result.message = template(message, options)
+
+    return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        dirname: opts.dirname
+    }));
+}
+
+var version = parseVersion(parsed.tag);
+
+if (!version) {
+    return cb(null, errors.<span class="apidocCodeKeywordSpan">NonSemverTag</span>({
+        name: name,
+        gitLink: gitLink,
+        tag: parsed.tag,
+        dirname: opts.dirname
+    }));
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.force_install" id="apidoc.module.npm-shrinkwrap.force_install">module npm-shrinkwrap.force_install</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.force_install.force_install" id="apidoc.element.npm-shrinkwrap.force_install.force_install">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>force_install
+        <span class="apidocSignatureSpan">(nodeModules, shrinkwrap, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function forceInstall(nodeModules, shrinkwrap, opts, cb) {
+    if (typeof opts === &#x27;function&#x27;) {
+        cb = opts;
+        opts = {};
+    }
+
+    // if no dependencies object then terminate recursion
+    if (shrinkwrap.name &#x26;&#x26; !shrinkwrap.dependencies) {
+        return purgeExcess(nodeModules, shrinkwrap, opts, cb);
+    }
+
+    var deps = shrinkwrap.dependencies;
+    // console.log(&#x27;shrinkwrap&#x27;, shrinkwrap);
+    var tasks = Object.keys(deps).map(function (key) {
+        var dep = deps[key];
+        if (!dep.name) {
+            dep.name = key;
+        }
+        var filePath = path.join(nodeModules, key);
+
+        return isCorrect.bind(null, filePath, dep, opts);
+    });
+
+    tasks.push(purgeExcess.bind(
+        null, nodeModules, shrinkwrap, opts));
+
+    parallel(tasks, function (err, results) {
+        if (err) {
+            return cb(err);
+        }
+
+        opts.dev = false;
+
+        // remove purgeExcess result
+        results.pop();
+
+        var incorrects = results.filter(function (dep) {
+            return !dep.correct;
+        });
+        var corrects = results.filter(function (dep) {
+            return dep.correct;
+        });
+
+<span class="apidocCodeCommentSpan">        /*  for each incorrect
+
+             - install it
+             - remove excess
+             - force install all children
+
+
+        */
+</span>        var inCorrectTasks = incorrects.map(function (incorrect) {
+            var name = incorrect.name;
+            var folder = path.join(nodeModules,
+                name, &#x27;node_modules&#x27;);
+
+            return series.bind(null, [
+                installModule.bind(
+                    null, nodeModules, incorrect, opts),
+                forceInstall.bind(null, folder, incorrect, opts)
+            ]);
+        });
+        var correctTasks = corrects.map(function (correct) {
+            var name = correct.name;
+            var folder = path.join(nodeModules, name,
+                &#x27;node_modules&#x27;);
+
+            return forceInstall.bind(
+                null, folder, correct, opts);
+        });
+
+        /* for each correct
+
+            - force install all children
+        */
+
+        var tasks = [].concat(inCorrectTasks, correctTasks);
+
+        parallel(tasks, cb);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.install_module" id="apidoc.module.npm-shrinkwrap.install_module">module npm-shrinkwrap.install_module</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.install_module.install_module" id="apidoc.element.npm-shrinkwrap.install_module.install_module">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>install_module
+        <span class="apidocSignatureSpan">(nodeModules, dep, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function installModule(nodeModules, dep, opts, cb) {
+    var where = path.join(nodeModules, &#x27;..&#x27;);
+
+    console.log(&#x27;installing &#x27;, where, dep.resolved);
+    var cmd = &#x27;npm install &#x27; + dep.resolved;
+
+    if (opts.registry) {
+        cmd += &#x27; --registry=&#x27; + opts.registry;
+    }
+
+    exec(cmd, {
+        cwd: where
+    }, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.purge_excess" id="apidoc.module.npm-shrinkwrap.purge_excess">module npm-shrinkwrap.purge_excess</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.purge_excess.purge_excess" id="apidoc.element.npm-shrinkwrap.purge_excess.purge_excess">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>purge_excess
+        <span class="apidocSignatureSpan">(dir, shrinkwrap, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function purgeExcess(dir, shrinkwrap, opts, cb) {
+    if (typeof opts === &#x27;function&#x27;) {
+        cb = opts;
+        opts = {};
+    }
+
+    findExcess(dir, shrinkwrap, opts, null, function (err, excessFiles) {
+        if (err) {
+            // if no node_modules then nothing to purge
+            if (err.code === &#x27;ENOENT&#x27;) {
+                return cb(null);
+            }
+            return cb(err);
+        }
+
+        var tasks = excessFiles.map(function (file) {
+            var filePath = path.join(dir, file);
+            console.log(&#x27;removing&#x27;, filePath);
+            return rimraf.bind(null, filePath);
+        });
+
+        parallel(tasks, cb);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.read" id="apidoc.module.npm-shrinkwrap.read">module npm-shrinkwrap.read</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.read.devDependencies" id="apidoc.element.npm-shrinkwrap.read.devDependencies">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.read.</span>devDependencies
+        <span class="apidocSignatureSpan">(dirname, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readDevDependencies(dirname, cb) {
+    readPackage(dirname, function (err, json) {
+        if (err) {
+            return cb(err);
+        }
+
+        cb(null, json.devDependencies);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.read.package" id="apidoc.element.npm-shrinkwrap.read.package">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.read.</span>package
+        <span class="apidocSignatureSpan">(dirname, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readPackage(dirname, cb) {
+    var filePath = path.join(dirname, &#x27;package.json&#x27;);
+    readJSON(filePath, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        resolvedUri.protocol));
+}
+}
+
+function isCorrectVersion(filePath, dep, cb) {
+var expectedVersion = dep.version;
+
+read.<span class="apidocCodeKeywordSpan">package</span>(filePath, function (err, json) {
+    if (err) {
+        if (err &#x26;&#x26; err.code === &#x27;ENOENT&#x27;) {
+            dep.correct = false;
+            return cb(null, dep);
+        } else if (err &#x26;&#x26; !err.code) {
+            dep.correct = false;
+            return cb(null, dep);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.read.shrinkwrap" id="apidoc.element.npm-shrinkwrap.read.shrinkwrap">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.read.</span>shrinkwrap
+        <span class="apidocSignatureSpan">(dirname, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readShrinkwrap(dirname, cb) {
+    var filePath = path.join(dirname, &#x27;npm-shrinkwrap.json&#x27;);
+    readJSON(filePath, function(err, json) {
+        if (err &#x26;&#x26; err.code === &#x27;ENOENT&#x27;) {
+            return cb(FileNotFound({
+                filePath: filePath
+            }));
+        } else {
+            cb(null, json);
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        var fileName = path.join(opts.dirname, &#x27;npm-shrinkwrap.json&#x27;);
+        readJSON(fileName, onfile);
+
+        function onfile(err, oldShrinkwrap) {
+if (err) {
+    // if no npm-shrinkwrap.json exists then just
+    // create one
+    npm.commands.<span class="apidocCodeKeywordSpan">shrinkwrap</span>({}, true, onshrinkwrap);
+    return;
+}
+
+_oldShrinkwrap = oldShrinkwrap;
+
+/* npm.commands.shrinkwrap will blow away any
+    extra keys that you set.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.read_json" id="apidoc.module.npm-shrinkwrap.read_json">module npm-shrinkwrap.read_json</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.read_json.read_json" id="apidoc.element.npm-shrinkwrap.read_json.read_json">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>read_json
+        <span class="apidocSignatureSpan">(filename, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readJSON(filename, options, callback){
+  if(callback === undefined){
+    callback = options;
+    options = {};
+  }
+
+  fs.readFile(filename, options, function(error, bf){
+    if(error) return callback(error);
+
+    try {
+      bf = JSON.parse(bf.toString().replace(/^\ufeff/g, &#x27;&#x27;));
+    } catch (err) {
+      callback(err);
+      return;
+    }
+
+    callback(undefined, bf);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.set_resolved" id="apidoc.module.npm-shrinkwrap.set_resolved">module npm-shrinkwrap.set_resolved</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.set_resolved.set_resolved" id="apidoc.element.npm-shrinkwrap.set_resolved.set_resolved">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>set_resolved
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setResolved(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var shrinkwrapFile = path.join(opts.dirname, &#x27;npm-shrinkwrap.json&#x27;);
+    var createUri = opts.createUri || defaultCreateUri;
+    var registries = opts.registries || [&#x27;registry.npmjs.org&#x27;];
+    var rewriteResolved = opts.rewriteResolved || null;
+
+    readJSON(shrinkwrapFile, onjson);
+
+    function onjson(err, json) {
+        if (err) {
+            return callback(err);
+        }
+
+        var existingVersion = json[&#x27;npm-shrinkwrap-version&#x27;];
+
+        if (existingVersion &#x26;&#x26; semver.gt(existingVersion, version)) {
+            return callback(errors.InvalidNPMVersion({
+                existing: existingVersion,
+                current: version
+            }));
+        }
+
+        json[&#x27;npm-shrinkwrap-version&#x27;] = version;
+
+        json[&#x27;node-version&#x27;] = process.version;
+
+        json = fixResolved(json, null);
+
+        // if top level shrinkwrap has a `from` or `resolved`
+        // field then delete them
+        if (json.from) {
+            json.from = undefined;
+        }
+        if (json.resolved) {
+            json.resolved = undefined;
+        }
+
+        fs.writeFile(shrinkwrapFile,
+            JSON.stringify(json, null, 2) + &#x27;\n&#x27;, callback);
+    }
+
+    function fixResolved(json, name) {
+        if (json.from &#x26;&#x26; !json.resolved) {
+            computeResolved(json, name);
+        }
+
+        // handle the case of no resolved &#x26; no from
+        if (json.version &#x26;&#x26; name &#x26;&#x26; !json.resolved) {
+            json.resolved = createUri(name, json.version);
+        }
+
+        if (rewriteResolved &#x26;&#x26; json.resolved) {
+            json.resolved = rewriteResolved(json.resolved);
+        }
+
+        if (json.dependencies) {
+            Object.keys(json.dependencies).forEach(function (dep) {
+                fixResolved(json.dependencies[dep], dep);
+            });
+            json.dependencies = json.dependencies;
+        }
+
+        return json;
+    }
+
+<span class="apidocCodeCommentSpan">    /*  look for `from` fields and set a `resolved` field next
+          to it if the `resolved` does not exist.
+
+        This normalizes `npm shrinkwrap` so a resolved field
+          always get&#x27;s set.
+
+    */
+</span>    function computeResolved(json, name) {
+        var value = json.from;
+        name = name || json.name;
+
+        var uri = url.parse(value);
+
+        // handle the case `from` is a privateRegistryURL
+        if ((uri.protocol === &#x27;http:&#x27; || uri.protocol === &#x27;https:&#x27;) &#x26;&#x26;
+            registries.indexOf(uri.host) !== -1
+        ) {
+            json.resolved = value;
+            return;
+        }
+
+        // from is {name}@{semver | uri}
+        var parts = value.split(&#x27;@&#x27;);
+        var rest = parts.slice(1).join(&#x27;@&#x27;);
+
+        var secondUri = url.parse(rest);
+
+        // from is a {name}@{semver}
+        if (!secondUri.protocol) {
+            // call createUri to generate a tarball uri
+            // for json module name &#x26; version
+            json.resolved = createUri(name, json.version);
+            return;
+        } else {
+            // from is a git link.
+            // do not try to set resolved
+            return;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.toString" id="apidoc.module.npm-shrinkwrap.toString">module npm-shrinkwrap.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.toString.toString" id="apidoc.element.npm-shrinkwrap.toString.toString">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  options = {};
+}
+
+fs.readFile(filename, options, function(error, bf){
+  if(error) return callback(error);
+
+  try {
+    bf = JSON.parse(bf.<span class="apidocCodeKeywordSpan">toString</span>().replace(/^\ufeff/g, &#x27;&#x27;));
+  } catch (err) {
+    callback(err);
+    return;
+  }
+
+  callback(undefined, bf);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.trim_and_sort_shrinkwrap" id="apidoc.module.npm-shrinkwrap.trim_and_sort_shrinkwrap">module npm-shrinkwrap.trim_and_sort_shrinkwrap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.trim_and_sort_shrinkwrap.trim_and_sort_shrinkwrap" id="apidoc.element.npm-shrinkwrap.trim_and_sort_shrinkwrap.trim_and_sort_shrinkwrap">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_and_sort_shrinkwrap
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trimFrom(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var shrinkwrapFile = path.join(opts.dirname, &#x27;npm-shrinkwrap.json&#x27;);
+    var registries = opts.registries || [&#x27;registry.npmjs.org&#x27;];
+
+    parallel([
+        fixShrinkwrap,
+        fixPackage.bind(null, opts.dirname)
+    ], callback);
+
+
+    function fixShrinkwrap(callback) {
+        fs.readFile(shrinkwrapFile, &#x27;utf8&#x27;, function (err, file) {
+            if (err) {
+                return callback(err);
+            }
+
+            if (file === &#x27;&#x27;) {
+                return callback(errors.EmptyFile());
+            }
+
+            safeJsonParse(file, function (err, json) {
+                if (err) {
+                    return callback(err);
+                }
+
+                json = recursiveSorted(json);
+
+                json = replaceFields(json, replacer);
+
+                fs.writeFile(shrinkwrapFile,
+                    JSON.stringify(json, null, 2) + &#x27;\n&#x27;, callback);
+            });
+        });
+    }
+
+    function replaceFields(json, replacer, name) {
+        name = name || &#x27;root&#x27;;
+
+        if (json.from) {
+            json.from = replacer.call(json,
+                &#x27;from&#x27;, json.from, name);
+        }
+
+        if (json.dependencies) {
+            Object.keys(json.dependencies)
+                .forEach(recurse);
+        }
+
+        return json;
+
+        function recurse(name) {
+            json.dependencies[name] = replaceFields(
+                json.dependencies[name],
+                replacer,
+                name);
+        }
+    }
+
+    function fixFromField(opts) {
+        var shaIsm = opts.fromUri.hash &#x26;&#x26;
+            opts.fromUri.hash.slice(1);
+
+        // from does not have shaIsm. bail early
+        if (!shaIsm) {
+            return opts.name + &#x27;@&#x27; + opts.fromValue;
+        }
+
+        var resolvedUri = url.parse(opts.resolvedValue);
+        var resolveShaism = resolvedUri.hash &#x26;&#x26;
+            resolvedUri.hash.slice(1);
+
+        // resolved does not have shaIsm. bail early
+        if (!resolveShaism) {
+            return opts.name + &#x27;@&#x27; + opts.fromValue;
+        }
+
+        // replace the from shaIsm with the resolved shaIsm
+        if (shaIsm !== resolveShaism) {
+            var pathname = opts.fromUri.pathname;
+            // normalize git+ssh links with a &#x27;:&#x27; after the host instead of a &#x27;/&#x27;
+            if (pathname[1] === &#x27;:&#x27;) {
+                pathname = pathname[0] + pathname.slice(2);
+            }
+            var newValue = url.format({
+                protocol: opts.fromUri.protocol,
+                slashes: opts.fromUri.slashes,
+                auth: opts.fromUri.auth,
+                host: opts.fromUri.host,
+                pathname: pathname,
+                hash: resolveShaism
+            });
+            return opts.name + &#x27;@&#x27; + newValue;
+        }
+
+        return opts.name + &#x27;@&#x27; + opts.fromValue;
+    }
+
+<span class="apidocCodeCommentSpan">    /* trims the `from` field from `npm-shrinkwrap.json` files.
+
+        The `from` field is likely to change because different npm
+            clients do different things and general non determinism.
+
+        The `from` field is not really important since the `resolved`
+            and `version` fields are mostly used.
+
+        The only situations in which `from` is used is non npm links
+            (i.e. git, git+ssh and https tarbal links) and situations
+            where there is no `resolved` field.
+    */
+</span>    function replacer(key, value, name) {
+        if (key !== &#x27;from&#x27;) {
+            return value;
+        }
+
+        var resolved = this.resolved;
+
+        // if this dependency has no `resolved` field then it&#x27;s not
+        // safe to remove the `from` field since `npm install` will
+        // use it.
+        if (!resolved) {
+            return value;
+        }
+
+        var uri = url.parse(value);
+
+        // if it&#x27;s a `http:` link to registry its safe
+        // to remove as `from` is not really used
+        if ((uri.protocol === &#x27;http:&#x27; || uri.protocol === &#x27;https:&#x27;) &#x26;&#x26;
+            registries.indexOf(uri.host) !== -1
+        ) {
+            return undefined;
+        // if it&#x27;s any other li ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.trim_nested" id="apidoc.module.npm-shrinkwrap.trim_nested">module npm-shrinkwrap.trim_nested</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.trim_nested.trim_nested" id="apidoc.element.npm-shrinkwrap.trim_nested.trim_nested">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>trim_nested
+        <span class="apidocSignatureSpan">(previous, current, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trimNested(previous, current, opts) {
+    // bail early if we want to keep nested dependencies
+    if (opts.keepNested) {
+        return current;
+    }
+
+    // purposes find patches from to
+    // apply TO current FROM previous
+    var patches = jsonDiff.diff(current, previous);
+
+    if (!patches) {
+        return current;
+    }
+
+    patches = removeTopLevelPatches(patches);
+
+    if (patches.dependencies) {
+        Object.keys(patches.dependencies)
+            .forEach(function (key) {
+                current.dependencies[key] =
+                    previous.dependencies[key];
+            });
+    }
+
+    return current;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.verify_git" id="apidoc.module.npm-shrinkwrap.verify_git">module npm-shrinkwrap.verify_git</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.verify_git.verify_git" id="apidoc.element.npm-shrinkwrap.verify_git.verify_git">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>verify_git
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function verifyGit(opts, callback) {
+    if (typeof opts === &#x27;string&#x27;) {
+        opts = { dirname: opts };
+    }
+
+    var packageFile = path.join(opts.dirname, &#x27;package.json&#x27;);
+
+    readJSON(packageFile, onpackage);
+
+    function onpackage(err, package) {
+        if (err) {
+            return callback(err);
+        }
+
+        var deps = package.dependencies || {};
+        var devDeps = package.devDependencies || {};
+
+        parallel([
+            analyze.bind(null, deps, opts),
+            opts.dev ? analyze.bind(null, devDeps, opts) : null
+        ].filter(Boolean), function (err, values) {
+            if (err) {
+                return callback(err);
+            }
+
+            var errors = values[0].concat(values[1] || []);
+
+            callback(null, errors);
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.npm-shrinkwrap.walk_shrinkwrap" id="apidoc.module.npm-shrinkwrap.walk_shrinkwrap">module npm-shrinkwrap.walk_shrinkwrap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.npm-shrinkwrap.walk_shrinkwrap.walk_shrinkwrap" id="apidoc.element.npm-shrinkwrap.walk_shrinkwrap.walk_shrinkwrap">
+        function <span class="apidocSignatureSpan">npm-shrinkwrap.</span>walk_shrinkwrap
+        <span class="apidocSignatureSpan">(package, fn, key, parent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function walkDeps(package, fn, key, parent) {
+    package._name = key || package.name;
+    package._parent = parent || null;
+    fn(package, package._name, package._parent);
+
+    Object.keys(package.dependencies || {})
+        .forEach(function (key) {
+            walkDeps(package.dependencies[key],
+                fn, key, package);
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
