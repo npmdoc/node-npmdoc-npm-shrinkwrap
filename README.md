@@ -1,6 +1,6 @@
 # npmdoc-npm-shrinkwrap
 
-#### api documentation for  [npm-shrinkwrap (v6.0.2)](https://github.com/uber/npm-shrinkwrap)  [![npm package](https://img.shields.io/npm/v/npmdoc-npm-shrinkwrap.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-npm-shrinkwrap) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-npm-shrinkwrap.svg)](https://travis-ci.org/npmdoc/node-npmdoc-npm-shrinkwrap)
+#### basic api documentation for  [npm-shrinkwrap (v6.0.2)](https://github.com/uber/npm-shrinkwrap)  [![npm package](https://img.shields.io/npm/v/npmdoc-npm-shrinkwrap.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-npm-shrinkwrap) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-npm-shrinkwrap.svg)](https://travis-ci.org/npmdoc/node-npmdoc-npm-shrinkwrap)
 
 #### A consistent shrinkwrap tool
 
